@@ -69,7 +69,9 @@ local PlaceId = game.PlaceId
 local ProductInfo = MarketplaceService:GetProductInfo(PlaceId)
 local GameName = ProductInfo.Name
 
-Fluent:Notify({ Title = "Script executado com sucesso", Content = "VocÃª esta usando Mender_hub" })
+Fluent:Notify({ Title = "Script executado com sucesso", Content = "Você esta usando Mender_hub",
+Duration= 4 
+})
 
 local Window = Fluent:CreateWindow({
     Title = "Mender_hub",
@@ -85,7 +87,7 @@ local Tabs = {
 }
 Tabs.Main:AddParagraph({
         Title = "Atualizado 22:45",
-        Content = "Add Fixed bugs \n Add Rank up \n Add Magnetc Game pass"
+        Content = "Add Fixed bugs \n Add Rank up \n Add Magnetc Game pass"    
     })
 
 local Tabs = {
@@ -138,6 +140,98 @@ end)
 local AutoClick= Tabs.Main:AddToggle("SWORD", {Title = "SWORD ART ONLINE", Default = false})
 AutoClick:OnChanged(function()
     while AutoClick.Value do
+--remote
+local args = {
+    [1] = "Online World",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
+        wait(0)
+    end
+end)
+
+local AutoClick= Tabs.Main:AddToggle("Demon Town", {Title = "Demon town", Default = false})
+AutoClick:OnChanged(function()
+    while AutoClick.Value do
+--remote
+local args = {
+    [1] = "Demon Town",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
+        wait(0)
+    end
+end)
+
+local Tabs = { 
+   Settings = Window:AddTab({ Title = "MISC", Icon = "settings" })
+}
+
+local AutoClick= Tabs.Settings:AddToggle("RankUp", {Title = "Auto Rank Up", Default = false})
+AutoClick:OnChanged(function()
+    while AutoClick.Value do
+--remote
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("RankUp"):WaitForChild("Events"):WaitForChild("Redeem"):InvokeServer()
+        wait(0)
+    end
+end)
+
+local Dropdown = Tabs.farm:AddDropdown("autofarm", {
+    Title = "Wolrd 1",
+    Values = {
+        "Selecione a Ilha", -- Opcao inicial para evitar teleportes automÃ¡ticos
+        "Finraio", 
+        "Magna", 
+        "noelly", 
+        "vanessa", 
+        "yuno", 
+        "asta", 
+    },
+    Multi = false,
+    Default = "Selecione O Mob", -- Agora o dropdown comeÃ§a sem teleportar ninguÃ©m
+})
+
+Dropdown:OnChanged(function(Value)
+    local locations = {
+        ["Finraio"] = _G.auto = true
+
+while _G.auto do
+local args = {
+    [1] = "e46ec797-c047-4a03-9b1d-d7bfcfc15d02"
+}
+
+game:GetService("ReplicatedStorage").Packages.Network.Services.Combat.Events.Attack:InvokeServer(unpack(args))
+
+
+wait()
+end,
+        ["Magna"] = CFrame.new(823.648682, 17.4093723, 8962.78223),
+        ["noelly"] = CFrame.new(-6692.25293, 23.5935249, 1327.20728),
+        ["vanessa"] = CFrame.new(4408.04736, 29.4047318, -2371.62598),
+        ["yuno"] = CFrame.new(-3961.60254, 80.3750458, 9812.37793),
+        ["asta"] = CFrame.new(-727.004517, 16.7731647, 1173.44324),
+        ["Jojo"] = CFrame.new(49050.8633, 117.753181, 1175.1842),
+        ["One Punch Man"] = CFrame.new(-23614.3711, -40.7557831, 460.156738)
+    }
+
+    if locations[Value] then
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = locations[Value]
+        end
+    end
+end)-- Icon personalizado
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+-- Propriedades
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+le AutoClick.Value do
 --remote
 local args = {
     [1] = "Online World",

@@ -86,8 +86,8 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" })    
 }
 Tabs.Main:AddParagraph({
-        Title = "Atualizado 22:45",
-        Content = "Add Fixed bugs \n Add Rank up \n Add Magnetc Game pass"    
+        Title = "Esse script esta em update",
+        Content = "Script atualizando "
     })
 
 local Tabs = {
@@ -194,22 +194,16 @@ local Dropdown = Tabs.farm:AddDropdown("autofarm", {
 })
 
 Dropdown:OnChanged(function(Value)
-    local farm = {
-        ["Finraio"] =(
-        _G.auto = true
+    local locations = {
+        ["Finraio"] = CFrame.new(),
+        ["Magna"] = _G.auto = true
 
 while _G.auto do
 local args = {
-    [1] = "e46ec797-c047-4a03-9b1d-d7bfcfc15d02"
+    [1] = "f7a6d998-bb83-4693-95a9-4d1ddf39cf76"
 }
 
 game:GetService("ReplicatedStorage").Packages.Network.Services.Combat.Events.Attack:InvokeServer(unpack(args))
-end
-
-wait()
-end
-end),
-        ["Magna"] = CFrame.new(823.648682, 17.4093723, 8962.78223),
         ["noelly"] = CFrame.new(-6692.25293, 23.5935249, 1327.20728),
         ["vanessa"] = CFrame.new(4408.04736, 29.4047318, -2371.62598),
         ["yuno"] = CFrame.new(-3961.60254, 80.3750458, 9812.37793),
@@ -224,95 +218,4 @@ end),
             player.Character.HumanoidRootPart.CFrame = locations[Value]
         end
     end
-end)-- Icon personalizado
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
--- Propriedades
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-le AutoClick.Value do
---remote
-local args = {
-    [1] = "Online World",
-    [2] = 1
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
-        wait(0)
-    end
 end)
-
-local AutoClick= Tabs.Main:AddToggle("Demon Town", {Title = "Demon town", Default = false})
-AutoClick:OnChanged(function()
-    while AutoClick.Value do
---remote
-local args = {
-    [1] = "Demon Town",
-    [2] = 1
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
-        wait(0)
-    end
-end)
-
-local Tabs = { 
-   Settings = Window:AddTab({ Title = "MISC", Icon = "settings" })
-}
-
-local AutoClick= Tabs.Settings:AddToggle("RankUp", {Title = "Auto Rank Up", Default = false})
-AutoClick:OnChanged(function()
-    while AutoClick.Value do
---remote
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("RankUp"):WaitForChild("Events"):WaitForChild("Redeem"):InvokeServer()
-        wait(0)
-    end
-end)
-
-
-local Toggle = Tabs.Settings:AddToggle("MagnetToggle", {Title = "Magnet", Default = false})
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local hrp = character:WaitForChild("HumanoidRootPart") -- Pega a posição do jogador
-
-local function activateMagnet()
-    while wait(0.1) do -- Repete a cada 0.1 segundos
-        if Toggle.Value then -- Só ativa o magnet se o toggle estiver ligado
-            for _, drop in pairs(workspace["Visual Effects"]:GetChildren()) do
-                if drop:IsA("BasePart") or drop:IsA("Model") then -- Se for um objeto físico
-                    drop.CFrame = hrp.CFrame -- Move o drop para o jogador
-                end
-            end
-        end
-    end
-end
-
-Toggle:OnChanged(function()
-    if Toggle.Value then
-        print("Magnet ativado!")
-        activateMagnet()
-    else
-        print("Magnet desativado!")
-    end
-end)
-
-
-local TeleportTab = Window:AddTab({ Title = "Teleports", Icon = "sword" })
-TeleportTab:AddButton({
-    Title = "nome da ilha",
-    Callback = function()
-        --codigo aqui
-        local targetCFrame = CFrame.new(-74.0038071, 12.1121235, 2641.51855, -0.947319448, 1.04120423e-09, 0.320290238, 6.57698174e-10, 1, -1.30554711e-09, -0.320290238, -1.02611586e-09, -0.947319448)
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local HRT = character:WaitForChild("HumanoidRootPart")
-        HRT.CFrame = targetCFrame
-        print("Teleportado para ONE HERO")
-    end
-})
-
-

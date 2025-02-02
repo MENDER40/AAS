@@ -195,7 +195,7 @@ local Dropdown = Tabs.farm:AddDropdown("autofarm", {
 
 Dropdown:OnChanged(function(Value)
     local farm = {
-        ["Finraio"] =
+        ["Finraio"] =(
         _G.auto = true
 
 while _G.auto do
@@ -207,7 +207,8 @@ game:GetService("ReplicatedStorage").Packages.Network.Services.Combat.Events.Att
 end
 
 wait()
-end,
+end
+end),
         ["Magna"] = CFrame.new(823.648682, 17.4093723, 8962.78223),
         ["noelly"] = CFrame.new(-6692.25293, 23.5935249, 1327.20728),
         ["vanessa"] = CFrame.new(4408.04736, 29.4047318, -2371.62598),

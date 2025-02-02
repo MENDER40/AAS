@@ -84,8 +84,8 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" })    
 }
 Tabs.Main:AddParagraph({
-        Title = "Esse script esta em update",
-        Content = "Script atualizando "
+        Title = "Atualizado 22:45",
+        Content = "Add Fixed bugs /n Add Rank up"
     })
 
 local Tabs = {

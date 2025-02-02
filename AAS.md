@@ -196,7 +196,7 @@ local Dropdown = Tabs.farm:AddDropdown("autofarm", {
 Dropdown:OnChanged(function(Value)
     local locations = {
         ["Finraio"] = CFrame.new(),
-        ["Magna"] = _G.auto = true
+        ["Magna"] = (_G.auto = true
 
 while _G.auto do
 local args = {
@@ -204,6 +204,9 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Packages.Network.Services.Combat.Events.Attack:InvokeServer(unpack(args))
+wait()
+end
+end),
         ["noelly"] = CFrame.new(-6692.25293, 23.5935249, 1327.20728),
         ["vanessa"] = CFrame.new(4408.04736, 29.4047318, -2371.62598),
         ["yuno"] = CFrame.new(-3961.60254, 80.3750458, 9812.37793),

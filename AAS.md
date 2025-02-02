@@ -140,8 +140,8 @@ AutoClick:OnChanged(function()
     while AutoClick.Value do
 --remote
 local args = {
-    [1] = "online World",
-    [2]= 1
+    [1] = "Online World",
+    [2] = 1
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))

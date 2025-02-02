@@ -203,3 +203,20 @@ Toggle:OnChanged(function()
         print("Magnet desativado!")
     end
 end)
+
+
+local TeleportTab = Window:AddTab({ Title = "Teleports", Icon = "sword" })
+TeleportTab:AddButton({
+    Title = "nome da ilha",
+    Callback = function()
+        --codigo aqui
+        local targetCFrame = CFrame.new(-74.0038071, 12.1121235, 2641.51855, -0.947319448, 1.04120423e-09, 0.320290238, 6.57698174e-10, 1, -1.30554711e-09, -0.320290238, -1.02611586e-09, -0.947319448)
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local HRT = character:WaitForChild("HumanoidRootPart")
+        HRT.CFrame = targetCFrame
+        print("Teleportado para ONE HERO")
+    end
+})
+
+

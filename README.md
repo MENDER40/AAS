@@ -134,3 +134,31 @@ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Netw
         wait(0)
     end
 end)
+
+local AutoClick= Tabs.Main:AddToggle("SWORD", {Title = "SWORD ART ONLINE", Default = false})
+AutoClick:OnChanged(function()
+    while AutoClick.Value do
+--remote
+local args = {
+    [1] = "online World",
+    [2]= 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
+        wait(0)
+    end
+end)
+
+local AutoClick= Tabs.Main:AddToggle("Demon Town", {Title = "Demon town", Default = false})
+AutoClick:OnChanged(function()
+    while AutoClick.Value do
+--remote
+local args = {
+    [1] = "Demon Town",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("Gacha"):WaitForChild("Events"):WaitForChild("Open"):InvokeServer(unpack(args))
+        wait(0)
+    end
+end)

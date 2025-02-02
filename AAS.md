@@ -175,3 +175,31 @@ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Netw
         wait(0)
     end
 end)
+
+
+local Toggle = Tabs.Settings:AddToggle("MagnetToggle", {Title = "Magnet", Default = false})
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart") -- Pega a posição do jogador
+
+local function activateMagnet()
+    while wait(0.1) do -- Repete a cada 0.1 segundos
+        if Toggle.Value then -- Só ativa o magnet se o toggle estiver ligado
+            for _, drop in pairs(workspace["Visual Effects"]:GetChildren()) do
+                if drop:IsA("BasePart") or drop:IsA("Model") then -- Se for um objeto físico
+                    drop.CFrame = hrp.CFrame -- Move o drop para o jogador
+                end
+            end
+        end
+    end
+end
+
+Toggle:OnChanged(function()
+    if Toggle.Value then
+        print("Magnet ativado!")
+        activateMagnet()
+    else
+        print("Magnet desativado!")
+    end
+end)

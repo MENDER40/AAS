@@ -194,8 +194,9 @@ local Dropdown = Tabs.farm:AddDropdown("autofarm", {
 })
 
 Dropdown:OnChanged(function(Value)
-    local locations = {
-        ["Finraio"] = _G.auto = true
+    local farm = {
+        ["Finraio"] =
+        _G.auto = true
 
 while _G.auto do
 local args = {
@@ -203,7 +204,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Packages.Network.Services.Combat.Events.Attack:InvokeServer(unpack(args))
-
+end
 
 wait()
 end,

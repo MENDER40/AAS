@@ -162,3 +162,16 @@ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Netw
         wait(0)
     end
 end)
+
+local Tabs = { 
+   Settings = Window:AddTab({ Title = "MISC", Icon = "settings" })
+}
+
+local AutoClick= Tabs.Settings:AddToggle("RankUp", {Title = "Auto Rank Up", Default = false})
+AutoClick:OnChanged(function()
+    while AutoClick.Value do
+--remote
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Network"):WaitForChild("Services"):WaitForChild("RankUp"):WaitForChild("Events"):WaitForChild("Redeem"):InvokeServer()
+        wait(0)
+    end
+end)

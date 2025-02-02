@@ -85,7 +85,7 @@ local Tabs = {
 }
 Tabs.Main:AddParagraph({
         Title = "Atualizado 22:45",
-        Content = "Add Fixed bugs /n Add Rank up"
+        Content = "Add Fixed bugs \n Add Rank up"
     })
 
 local Tabs = {
